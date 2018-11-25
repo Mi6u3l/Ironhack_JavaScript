@@ -74,3 +74,73 @@ for(var i = 1; i<=30; i++) {
 }
 ```
 
+Rock paper scissors
+-----------------------------
+```javascript
+ 
+function getComputerChoice() {
+  Math.floor(Math.random() * 3);
+  var randomNumber = Math.floor(Math.random() * 3);
+  switch (randomNumber) {
+    case 0:
+      return 'rock';
+      break;
+    case 1:
+      return 'paper';
+      break;
+    case 2:
+      return 'scissors';
+      break;
+  }        
+}  
+ 
+function determineWinner(userChoice, computerChoice) {
+  if (userChoice === computerChoice) {
+    return 'The game was a tie.';
+   }
+  
+  if (userChoice === 'rock') {
+    if (computerChoice === 'paper') {
+      return 'The computer has won';
+    }  else {
+      return 'You have won!'
+    }
+  }
+
+  if (userChoice === 'paper') {
+     if (computerChoice === 'scissors') {
+       return 'The computer has won'
+     }  else {
+       return 'You have won!'
+     }
+   }
+
+  if (userChoice === 'scissors') {
+      if (computerChoice === 'paper') {
+        return 'You have won!'
+     }  else { 
+       return 'The computer has won'
+      }
+   } 
+}
+
+function getUserChoice() {
+ var userChoice = prompt("Do you choose rock, paper or scissors?");
+ return userChoice;
+ 
+}
+
+function playGame() {
+ var computerChoice = getComputerChoice();
+ var userChoice = getUserChoice();
+
+ console.log('You threw ' + userChoice);
+ console.log('The computer threw ' + computerChoice);
+  
+console.log(determineWinner(userChoice, computerChoice));  
+}
+
+playGame();
+```
+
+
